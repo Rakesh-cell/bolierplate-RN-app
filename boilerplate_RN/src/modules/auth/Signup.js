@@ -2,16 +2,16 @@ import React,{useState} from 'react'
 import Inputfield from '../../components/Inputfield'
 import {ScrollView,View ,StyleSheet,Text,TouchableOpacity} from 'react-native'
 
-import { useDispatch,useSelector } from 'react-redux';
+
 
 import { Alert } from "react-native";
-import  axios  from 'axios';
+
 
 
 // import { signInUser } from '../../redux/action';
 
  const Signup = ({navigation}) => {
-    const isloading=useSelector((state) => state.mainreducer.isloading)
+
 
     const [email, setEmail] = useState('')
     const [msgerr, setmsgErr] = useState()
@@ -31,8 +31,8 @@ import  axios  from 'axios';
     const [confirm,setconfirm] = useState('')
     const [cerr,setcerr] = useState()//to check the confirm passward
 
-    const [Rvalue, setRValue] = useState('male');
-    const dispatch=useDispatch()
+
+
 
     const handlesignup=() => {
 
@@ -63,7 +63,7 @@ navigation.navigate("Login")
         setlname('')
         setpno('')
         setconfirm('')
-        setRValue('male')
+
 
         }
       
@@ -78,9 +78,9 @@ navigation.navigate("Login")
     return (
         //contentContainerStyle={{ flex: 1,alignItems: 'center',justifyContent: 'center',backgroundColor:'#FAF0DD'}}
         <ScrollView style={{flex: 1,}} >
-            <View style={{alignItems:'center'}}>
-             {isloading&&<Loader/>}
-             <Text style={styles.img}>NeoStore</Text>
+            <View style={{alignItems:'center',justifyContent: 'center',}}>
+
+             <Text style={styles.img}>Sample RN app</Text>
             <View style={styles.inputContainer}>  
             <Inputfield 
                 name="First Name" 
@@ -247,20 +247,14 @@ const styles = StyleSheet.create({
         fontSize: 15,
         padding: 4,
     },
-    radiostyle:{
-            flexDirection: 'row',
-            padding: 6,
-            paddingTop: 8,
-            justifyContent: 'space-evenly',
-            alignItems: 'center'
-        
-    },
+    
     img:{
-        fontSize:40,
+        fontSize:30,
         fontWeight: 'bold',
-        fontFamily: 'Luminari, fantasy',
+        // fontFamily: 'Luminari, fantasy',
         color: 'red',
         marginBottom:20,
+        marginTop:30,
     },
     inputContainer:{
     

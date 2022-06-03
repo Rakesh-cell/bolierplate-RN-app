@@ -7,8 +7,8 @@
  import React,{useState} from 'react'
  import Inputfield from '../../components/Inputfield'
  import {ScrollView,View ,StyleSheet,Text,TouchableOpacity,ActivityIndicator} from 'react-native'
- import {loginUser} from '../../redux/action'
-//  import { useDispatch ,useSelector} from 'react-redux';
+
+
  import { Alert } from "react-native";
 
  
@@ -21,7 +21,7 @@
      const [password, setPassword] = useState('')
      const [passerr,setpasserr] = useState()
  
-    //  const dispatch=useDispatch()
+
  
      const handlelogin=() => {
          const user={
@@ -36,8 +36,8 @@
              Alert.alert("Password","Password must be atleast 8 chars")
          }
          else{
-        //  dispatch(loginUser(user,navigation))
-        
+
+        navigation.navigate('Home')
          setEmail('')
          setPassword('')
          //error 
@@ -107,7 +107,7 @@
                   }}
                   />
          </View>
-         <TouchableOpacity  style={styles.pstyle} onPress={()=>navigation.navigate('Forget Password')} >
+         <TouchableOpacity  style={styles.pstyle} onPress={()=>{Alert.alert("forgot password ","screen to be created")}} >
              <Text style={styles.ptext}>Forgot Password?</Text>   
          </TouchableOpacity>
          <TouchableOpacity style={styles.btn} onPress={()=> {handlelogin()}}>
@@ -139,7 +139,7 @@
      img:{
          fontSize:40,
          fontWeight: 'bold',
-         fontFamily: 'Luminari, fantasy',
+        //  fontFamily: 'Luminari, fantasy',
          color: 'red',
          marginBottom:20,
      },

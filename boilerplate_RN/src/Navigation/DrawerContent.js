@@ -1,80 +1,121 @@
-import React, { Component } from 'react'
-import {View,Button,StyleSheet, } from 'react-native'
-import {
-    DrawerContentScrollView,
-    DrawerItem
-} from '@react-navigation/drawer'
+import React, { useEffect } from 'react'
+import { View, StyleSheet, Alert, Text,ScrollView } from 'react-native'
+import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
 
-// import {
-//     Avatar,
-//     Title,
-//     Caption,
-//     Drawer,
-// } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export function DrawerContent(props){
+import Icons from 'react-native-vector-icons/Ionicons';
+
+import { Avatar,Divider } from "native-base";
+import { HomeScreen } from './MainTabScreen';
+import NotificationsScreen from '../NotificationsScreen';
+
+
+export function DrawerContent(props) {
 
 
 
-    // const userPicture = "https://quiet-harbor-07900.herokuapp.com"+userData.user.UserLogin.profile
-    return(
-        <View style={{flex: 1}}>
-            <DrawerContentScrollView {...props}>
+
+
+
+
+    // useEffect(() => {
+
+
+
+    // },[])
+
+    return (
+        <View style={{ flex: 1 }}>
+            <DrawerContentScrollView
+
+                {...props}>
+
                 <View style={styles.drawerContent}>
-                    {/* <View style={styles.userInfoSection}>
-                        <View style={{flexDirection: 'row',marginTop:15}}>
-                            <Avatar.Image
-                                source={require('../assets/employee_avatar.png')}
-                                size={50}
-                                />
-                                <View style={{marginLeft:15,flexDirection: 'column'}} >
-                                    <Title style={styles.title}>{userName}</Title>
-                                    <Caption style={styles.caption}>{userEmail}</Caption>
-                                </View>
+                    <View style={styles.userInfoSection}>
+                        <View style={{ flexDirection: 'row', marginTop: 15 }}>
+
+                            <Avatar bg="indigo.500" alignSelf="center" size="md" source={{
+                                uri: "https://images.unsplash.com/photo-1614289371518-722f2615943d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                            }}>
+                                RS
+                            </Avatar>
+
+                            <View style={{ marginLeft: 15, flexDirection: 'column' }} >
+                                <Text style={styles.title}>User Name</Text>
+                                <Text style={styles.caption}>no-reply@gmail.com</Text>
+                            </View>
                         </View>
-                    </View> */}
-                    <Drawer.Section style={styles.drawerSection}>
+                    </View>
+                    {/* <Divider my="1" /> */}
+                    <ScrollView style={styles.drawerSection}>
+                        
                         <DrawerItem
-                            icon={({color, size})=>(
-                                <Icon name='home-outline'
-                                color={color}
+                            icon={({ size})=>(
+                                <Icon name='home'
+                                color="#1E90FF"
                                 size={size}
                                 />
                             )}
                             label='Home'
-                            onPress={()=>{props.navigation.navigate('HomeScreen')}}
+                            onPress={()=>{props.navigation.closeDrawer();}}
                         
                         />
+                        
                         <DrawerItem
-                            icon={({color, size})=>(
-                                <Icon name='account-outline'
-                                color={color}
+                            icon={({ size})=>(
+                                <Icon name='account'
+                                color="#1E90FF"
                                 size={size}
                                 />
                             )}
-                            label='Feedback'
-                            onPress={()=>{props.navigation.navigate('Members')}}
+                            label='Notifications'
+                            onPress={()=>{props.navigation.navigate('Notifications')}}
                         
                         />
-                    </Drawer.Section>
+                        {/* <DrawerItem
+                            icon={({ size})=>(
+                                <Icon name='view-list'
+                                color="#1E90FF"
+                                size={size}
+                                />
+                            )}
+                            label='All Products'
+                            onPress={()=>{props.navigation.navigate('All Products')}}
+                        
+                        /> */}
+</ScrollView>
                 </View>
             </DrawerContentScrollView>
-            <Drawer.Section style={styles.bottomDrawerSection}>
-                <DrawerItem 
-                    icon={({color, size})=>(
+            <View style={styles.bottomDrawerSection}>
+                <DrawerItem
+                    icon={({ size }) => (
                         <Icon name='exit-to-app'
-                        color={color}
-                        size={size}
+                            color="#1E90FF"
+                            size={size}
                         />
                     )}
                     label='Sign out'
-                    // onPress={()=>props.logOutUser(props.navigation)}
-                    // onPress={() => this.props.navigation.navigate('Login')}
-                    onPress={() => props.navigation.navigate('Login')}
+                    onPress={() => {
+                        Alert.alert(
+                            "Boilerplate",
+                            "Do you want to logout",
+                            [
+                                {
+                                    text: "Cancel",
+                                    onPress: () => console.log("Cancel Pressed"),
+                                    style: "cancel"
+                                },
+                                {
+                                    text: "Yes", onPress: () => props.navigation.navigate('Login')
+                                }
+                            ]
+                        );
+
+                    }}
                 />
-            </Drawer.Section>
-            
+            </View>
+
         </View>
     )
 }
@@ -82,42 +123,28 @@ export function DrawerContent(props){
 
 const styles = StyleSheet.create({
     drawerContent: {
-      flex: 1,
-    },
+        flex: 1,
+    },//
     userInfoSection: {
-      paddingLeft: 20,
-    },
+        paddingLeft: 20,
+    },//
     title: {
-      fontSize: 16,
-      marginTop: 3,
-      fontWeight: 'bold',
-    },
+        fontSize: 16,
+        marginTop: 3,
+        fontWeight: 'bold',
+    },//
     caption: {
-      fontSize: 14,
-      lineHeight: 14,
-    },
-    row: {
-      marginTop: 20,
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    section: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginRight: 15,
-    },
-    paragraph: {
-      fontWeight: 'bold',
-      marginRight: 3,
-    },
-    drawerSection: {
-      marginTop: 15,
-    },
+        fontSize: 14,
+        lineHeight: 14,
+    },//
+
     bottomDrawerSection: {
         marginBottom: 15,
         borderTopColor: '#f4f4f4',
         borderTopWidth: 1
-    },
-    
-  });
- 
+    },//
+    drawerSection: {
+        marginTop: 15,
+      },
+
+});
