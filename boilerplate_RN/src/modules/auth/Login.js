@@ -10,7 +10,8 @@
 
 
  import { Alert } from "react-native";
-
+import {Loginuser} from '../../redux/actions'
+import {useDispatch} from 'react-redux'
  
   const Login=({navigation})=> {
 
@@ -21,7 +22,7 @@
      const [password, setPassword] = useState('')
      const [passerr,setpasserr] = useState()
  
-
+const dispatch =useDispatch();
  
      const handlelogin=() => {
          const user={
@@ -36,8 +37,8 @@
              Alert.alert("Password","Password must be atleast 8 chars")
          }
          else{
-
-        navigation.navigate('Home')
+            dispatch(Loginuser(email, password))
+        // navigation.navigate('Home')
          setEmail('')
          setPassword('')
          //error 

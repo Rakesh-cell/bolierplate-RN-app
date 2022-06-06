@@ -7,7 +7,8 @@ import {SafeAreaView} from 'react-native'
 import { NativeBaseProvider } from 'native-base';
 
 import RootNavigation from './src/Navigation/RootNavigation'
-
+import {Provider} from 'react-redux'
+import { store } from './src/redux/store';
 // const Stack = createStackNavigator();
 // function TabAScreen() {
 //   return (
@@ -27,6 +28,7 @@ export default function App() {
 
 
   return (
+      <Provider store={store}>
       <SafeAreaView style={{ flex: 1}}> 
   <NativeBaseProvider> 
 
@@ -34,6 +36,7 @@ export default function App() {
   </NativeBaseProvider>
 
     </SafeAreaView>
+    </Provider>
   )
 }
 

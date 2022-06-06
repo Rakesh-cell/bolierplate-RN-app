@@ -9,8 +9,8 @@ import Icons from 'react-native-vector-icons/Ionicons';
 import { Avatar,Divider } from "native-base";
 import { HomeScreen } from './MainTabScreen';
 import NotificationsScreen from '../NotificationsScreen';
-
-
+import {Logout} from '../redux/actions'
+import { useDispatch } from 'react-redux';
 export function DrawerContent(props) {
 
 
@@ -24,6 +24,7 @@ export function DrawerContent(props) {
 
 
     // },[])
+    const dispatch =useDispatch()
 
     return (
         <View style={{ flex: 1 }}>
@@ -107,7 +108,7 @@ export function DrawerContent(props) {
                                     style: "cancel"
                                 },
                                 {
-                                    text: "Yes", onPress: () => props.navigation.navigate('Login')
+                                    text: "Yes", onPress: () => dispatch(Logout())
                                 }
                             ]
                         );
