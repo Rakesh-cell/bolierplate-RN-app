@@ -10,5 +10,5 @@ import App from './App';
 // style.type = "text/css";
 // style.appendChild(document.createTextNode(fontsCSS));
 // document.head.appendChild(style); 
-const APP_NAME = 'ProjectName';
+const APP_NAME = 'boilerplate_RN';
 AppRegistry.registerComponent(APP_NAME, () => App);
