@@ -11,4 +11,4 @@ import App from './App';
 // style.appendChild(document.createTextNode(fontsCSS));
 // document.head.appendChild(style); 
 const APP_NAME = 'ProjectName';
-AppRegistry.registerComponent(APP_NAMe, () => App);
+AppRegistry.registerComponent(APP_NAME, () => App);
