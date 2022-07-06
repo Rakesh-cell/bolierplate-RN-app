@@ -12,7 +12,7 @@ clone your empty repository to the Local machine
 cd <your repository folder>
 
 #step 4
-<code>npx react-native init <your new project name>  --template https://github.com/Rakesh-cell/bolierplate-RN-app.git </code>
+<code>npx react-native init your_new_project_name  --template https://github.com/Rakesh-cell/bolierplate-RN-app.git </code>
 
 #step 5
 delete yarn.lock and package-lock.json 
