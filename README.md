@@ -21,6 +21,7 @@ delete yarn.lock and package-lock.json
 navigate to project dir and hit " npm install"
 
 #Note if you face package defendency error then downgrade your react native version or use --force , --legacy--deps commands
+#
 <img width="329" alt="Screenshot 2022-06-27 at 6 22 06 PM" src="https://user-images.githubusercontent.com/55280274/175946333-9bca46f5-35b7-47fc-b0ea-9cf59b88a59c.png">
 
 <img width="327" alt="Screenshot 2022-06-27 at 6 23 00 PM" src="https://user-images.githubusercontent.com/55280274/175946969-84f629ec-8f4e-44d9-a15a-153c69db534a.png">
